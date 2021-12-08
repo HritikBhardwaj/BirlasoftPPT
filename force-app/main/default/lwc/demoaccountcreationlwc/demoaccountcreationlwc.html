@@ -1,0 +1,93 @@
+<template>
+    <lightning-card>
+        <h1>This is css styling</h1>
+    <template if:true={showAccountSearch}>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input name="accountName" label="Account Name" value={accountName} required onchange={handleInputOnChange}></lightning-input>
+                <lightning-input name="phone" label="Phone Number" required value={phone} onchange={handleInputOnChange}></lightning-input>
+                <lightning-input name="stateName" label="State/Province" value={stateName} onchange={handleStateOnChange}></lightning-input>
+                <lightning-input label="City" value={cityName} onchange={handleCityOnChange}></lightning-input>
+                <lightning-input label="ZipCode" value={zipcode} onchange={handleZipCodeOnChange}></lightning-input>
+                <lightning-input label="Country" value={countryName} onchange={handleCountryOnChange}></lightning-input>
+                <lightning-button class="slds-float_right my-brand" variant="brand" label="Search" style="margin-top: 1em;" onclick={getAccountsData}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="8" padding="around-small">
+                <!--lightning-datatable
+                    key-field="id"
+                    data={accountsData}
+                    columns={columns}>
+                </lightning-datatable-->
+                <c-datatableextended 
+                        columns={columns}
+                        data={accountsData}
+                        key-field="id"
+                        show-row-number-column
+                        hide-checkbox-column
+                        class="dataTable"
+                        oncheckboxchange={handlecheckboxchange}>
+                    </c-datatableextended>
+                <lightning-button style="margin-left: 95%;" variant="brand" label="Next" onclick={handleShowAccountCreationForm}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    <template if:true={showAccountCreate}>
+        <c-createnewaccountform onshowsearchstep={handlePreviousFromCreateStep} onhidecreatenewaccount={handlehidecreateaccountdetails} account-name={accountName} phone={phone} state-name={stateName} city-name={cityName} zipcode={zipcode} country-name={countryName} ></c-createnewaccountform>
+    </template>
+    </lightning-card>
+</template>   
+    
+    
+        <!-- <lightning-layout>
+            <lightning-card>
+            <lightning-layout-item size=5 padding="around-small">
+                <div class="demo-only" style="display: flex; width: 100%; height: 50.5rem">
+                    <div>
+                            <header class="slds-split-view__header">
+                                <lightning-messages></lightning-messages>
+                                <lightning-input type="text" label="Account Name" value={Accountname} onchange={handleemailChange} required onsearch={handleSearch} disabled={checkedAccountName}> </lightning-input>
+                                <lightning-input type="text" label="City" required value={city} onchange={handlecityChange} disabled={checkedCity}></lightning-input>
+                                <lightning-input type="text" label="State/Province" placeholder="US" required value={country} onchange={handlecountryChange} disabled={checkedCountry}></lightning-input>
+                                <lightning-input type="text" label="Country" placeholder="US" required value={country} onchange={handlecountryChange} disabled={checkedCountry}></lightning-input>
+                                <lightning-input type="text" label="Zip/Postal Code" value={postalCode} onchange={handlePostalChange} disabled={checkedPostal}></lightning-input>
+                                <lightning-textarea name="BillingStreet" label="Street" value={street} onchange={handlestreetChange} disabled={checkedStreet}></lightning-textarea>
+                                <lightning-input type="tel" label="Account Phone" value={phone} onchange={handlephoneChange} disabled={checkedInput}> </lightning-input>
+                                <lightning-input type="text" label="Contact First Name" value={firstname} onchange={handlefirstChange} disabled={checkedInput}></lightning-input>
+                                <lightning-input type="text" label="Contact Last Name" value={lastname} onchange={handlelastChange} disabled={checkedInput}></lightning-input>
+                                </br>
+                            </header>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-card>
+            <lightning-layout-item size=7 padding="around-small">
+                <lightning-card>
+                            <div class="slds-m-top_medium slds-m-bottom_x-large">
+                                <lightning-layout>
+                                    <lightning-layout-item size="4" padding="around-small">
+                                        <div class="slds-float_right" style="margin-bottom: 0.5em;">
+                                            <lightning-button variant="brand"
+                                                              name="NewAccount"
+                                                              label="Create New Account"
+                                                              onclick={showVisible}></lightning-button>
+                                        </div>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                <lightning-layout>
+                                    <lightning-layout-item size="12" padding="around-small">
+                                        <lightning-tile label="Salesforce Accounts" type="media">
+                                            <lightning-icon slot="media" icon-name="standard:account"></lightning-icon>
+                                        </lightning-tile>
+                                        <div class="slds-p-around_medium lgc-bg slds-m-top_medium slds-m-bottom_x-large slds-scrollable" style="height:17rem;">
+                                            <lightning-tree-grid columns={gridColumns}
+                                                                 data={gridData}
+                                                                 key-field="name"
+                                                                 hide-checkbox-column="true"
+                                                                 onrowaction={handleRowActions}></lightning-tree-grid>
+                                        </div>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </div>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout> -->
