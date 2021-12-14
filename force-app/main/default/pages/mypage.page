@@ -1,0 +1,20 @@
+<apex:page sidebar="true" showHeader="true" standardController="account">
+    <apex:form >
+    <div style = 'width:50%'>
+            <apex:image url="{!$Resource.ImgDemo}" style="width:20%"/>
+    </div>        
+        <apex:pageBlock title="New Company">
+            <apex:pageBlockSection title="Company Information" columns="3">
+                <apex:inputField value="{!account.name}"/>
+                <apex:inputField value="{!account.phone}"/>
+                <apex:inputField value="{!account.fax}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.Save}" action="{!save}"/>
+                <apex:commandButton value="{!$Label.Cancel}" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+        </apex:pageBlock>
+    </apex:form>
+  
+</apex:page>

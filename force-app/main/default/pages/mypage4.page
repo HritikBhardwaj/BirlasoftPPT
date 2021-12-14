@@ -1,0 +1,7 @@
+<apex:page controller="Employee">
+  <apex:form >
+  <apex:inputtext value="{!Employee.name}"/>
+  <br></br>
+  <apex:commandButton value="Save" action="{!dosave}"/>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page controller="employee2">
+Employees__c emp;
+public employee2(){
+    id i = apexpages.currentpage().getparameters().get('id');
+    if(i == null){
+        emp = new Employees__c();
+    }else{
+
+    act = [select id, name from Employees where id =: i];
+}
+}
+</apex:page>

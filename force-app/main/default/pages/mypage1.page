@@ -1,0 +1,16 @@
+<apex:page sidebar="true" showHeader="true" standardController="Merchandise__c">
+    <apex:form >
+        <apex:pageBlock title="New Merchandise">
+        <apex:pageblockSection title="Merchandise Information">
+            <apex:inputField value="{!Merchandise__c.Merchandise_Desc__c}"/>
+            <apex:inputField value="{!Merchandise__c.Merchandise_Stocks__c}"/>
+        </apex:pageblockSection>
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Save" action="{!save}"/>
+            <apex:commandButton value="cancel" action="{!cancel}"/>
+        </apex:pageBlockButtons>
+            
+        </apex:pageBlock>
+    </apex:form>
+  
+</apex:page>
