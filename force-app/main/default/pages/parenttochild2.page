@@ -1,0 +1,11 @@
+<apex:page standardController="account">
+<apex:form >
+<apex:pageBlock title="Opportunities of account {!account.name}">
+    <apex:pageBlockTable value="{!account.Opportunities}" var="ac">
+        <apex:column value="{!ac.closeDate}"/>
+        <apex:column value="{!ac.Amount}"/>
+    </apex:pageBlockTable>
+</apex:pageBlock>    
+</apex:form>
+
+</apex:page>
